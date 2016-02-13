@@ -20,40 +20,79 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
     String track;
     //boolean isPlaying;
     static Record r=new Record();
-    SensorRecorder sr_tmp=new SensorRecorder();
+    SensorRecorder sr=new SensorRecorder();
+    //this.sr.init();
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        track = intent.getStringExtra("track");
-        artistName = intent.getStringExtra("artist");
-        album = intent.getStringExtra("album");
-        //isPlaying = intent.getBooleanExtra("playing", false);
+
 
         String userIMEI="user_tmp";
+        //Log.d("#my_test", Integer.toString(intent.getAction().toString().indexOf("playstatechanged")));
+        Log.d("#my", "============================================");
 
         //save the previous record when the buffer is not empty
-        if(CollectService.sr.isWorking)
+        //
+        if(this.sr.isWorking && intent.getAction().toString().indexOf("metachanged")>0)
         {
-            Log.d("#my", "============================================");
-            Log.d("#my", "!!");
-            r.addSensorData(CollectService.sr);
-            CollectService.sr.reset();
-            this.save2Cloud();
-            this.sr_tmp.reset();
-            this.sr_tmp.start();
+            Log.d("#my", "next song");
+            this.sr.stop();
 
+            r.addSensorData(this.sr);
+            this.save2Cloud();
+
+            this.sr.reset();
+            this.sr.start();
+
+            track = intent.getStringExtra("track");
+            artistName = intent.getStringExtra("artist");
+            album = intent.getStringExtra("album");
+            this.r.update(userIMEI,track,album,artistName);
+
+            Log.d("#my", " ");
+        }
+        //start to play
+        else if(this.sr.isWorking ==false && intent.getAction().toString().indexOf("playstatechanged")>0)
+        {
+            Log.d("#my", "start to play");
+
+            //this.sr.init();
+            this.sr.start();
+
+            track = intent.getStringExtra("track");
+            artistName = intent.getStringExtra("artist");
+            album = intent.getStringExtra("album");
+            this.r.update(userIMEI,track,album,artistName);
+
+            Log.d("#my", " ");
+        }
+        //stop to play
+        else if(this.sr.isWorking ==true && intent.getAction().toString().indexOf("playstatechanged")>0) {
+
+            Log.d("#my", "stop to play");
+
+            this.sr.stop();
+            this.sr.setTime();
+
+            r.addSensorData(this.sr);
+            this.save2Cloud();
+
+            this.sr.reset();
+
+            Log.d("#my", "");
         }
         else
         {
-            Log.d("#my", "============================================");
-            Log.d("#my", "find broadcast");
-            Log.d("#my", "");
-
+            Log.d("#my", "else case");
+            /*
+            r.addSensorData(CollectService.sr);
+            CollectService.sr.reset();
+            this.save2Cloud();
+            this.sr.reset();
+            this.sr.start();
+            */
         }
-
-        //CollectService.sr.start();
-        r.update(userIMEI, track, album, artistName);
 
     }
     public void save2Cloud()
@@ -63,22 +102,23 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         Date curDate = new Date(System.currentTimeMillis()) ; // 獲取當前時間
         String date = formatter.format(curDate);
 
-
         Log.d("#my","start save");
         Log.d("#my", this.r.userIMEI);
         Log.d("#my", this.r.musicName);
-        Log.d("#my", Integer.toString(this.r.time));
+        Log.d("#my", Long.toString(this.r.time));
+        //Log.d("#my", this.r.start);
+        //Log.d("#my", this.r.end);
         Log.d("#my", date);
-
 
         ParseObject testObject = new ParseObject("record");
         testObject.put("User", r.userIMEI);
         testObject.put("Track", r.musicName);
         testObject.put("How_Long", r.time);
         testObject.put("When", date);
-        //testObject.saveInBackground();
+        //
 
         try{
+            //testObject.saveInBackground();
             testObject.save();
         }
         catch (ParseException e)
@@ -88,5 +128,6 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         Log.d("#my", "done");
 
     }
+
 
 }

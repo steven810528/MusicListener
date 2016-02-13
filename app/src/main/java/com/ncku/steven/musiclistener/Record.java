@@ -9,6 +9,8 @@ public class Record {
     String album;
     String artist;
 
+    String start;
+    String end;
     int time;
 
     double accX;
@@ -47,6 +49,8 @@ public class Record {
     void addSensorData(SensorRecorder sr)
     {
         this.time=sr.time;
+        //this.start=sr.start;
+        //this.end=sr.end;
         this.accX=sr.avgAcc[0];
         this.accY=sr.avgAcc[1];
         this.accZ=sr.avgAcc[2];

@@ -34,14 +34,13 @@
         <receiver android:name=".MusicBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.htc.music.metachanged"/>
+                <action android:name="com.htc.music.playstatechanged"/>
+
 
             </intent-filter>
         </receiver>
 
     </application>
-
-
-
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
