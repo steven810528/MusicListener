@@ -15,22 +15,21 @@ import java.util.Date;
  * Created by steven on 2016/2/7.
  */
 public class MusicBroadcastReceiver extends BroadcastReceiver {
-    String artistName;
-    String album;
-    String track;
-    //boolean isPlaying;
+    static String userIMEI="user_deafult";
+    static String artistName;
+    static String album;
+    static String track;
+
     static Record r=new Record();
+
     SensorRecorder sr=new SensorRecorder();
-    //this.sr.init();
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
-
-
-        String userIMEI="user_tmp";
-        //Log.d("#my_test", Integer.toString(intent.getAction().toString().indexOf("playstatechanged")));
         Log.d("#my", "============================================");
+
 
         //save the previous record when the buffer is not empty
         //
@@ -57,7 +56,6 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         {
             Log.d("#my", "start to play");
 
-            //this.sr.init();
             this.sr.start();
 
             track = intent.getStringExtra("track");
@@ -73,25 +71,17 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
             Log.d("#my", "stop to play");
 
             this.sr.stop();
-            this.sr.setTime();
 
             r.addSensorData(this.sr);
             this.save2Cloud();
 
             this.sr.reset();
 
-            Log.d("#my", "");
         }
         else
         {
             Log.d("#my", "else case");
-            /*
-            r.addSensorData(CollectService.sr);
-            CollectService.sr.reset();
-            this.save2Cloud();
-            this.sr.reset();
-            this.sr.start();
-            */
+
         }
 
     }
@@ -114,20 +104,28 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         testObject.put("User", r.userIMEI);
         testObject.put("Track", r.musicName);
         testObject.put("How_Long", r.time);
+        testObject.put("Acc_X", Double.toString(r.accX));
+        testObject.put("Acc_Y", Double.toString(r.accY));
+        testObject.put("Acc_Z", Double.toString(r.accZ));
         testObject.put("When", date);
+
         //
 
         try{
             //testObject.saveInBackground();
             testObject.save();
+            //testObject.s
         }
         catch (ParseException e)
         {
-            Log.d("#my_error", e.toString());
+            Log.d("#my_error_save", e.toString());
         }
         Log.d("#my", "done");
 
     }
-
+    public void setUser(String s)
+    {
+        this.userIMEI=s;
+    }
 
 }

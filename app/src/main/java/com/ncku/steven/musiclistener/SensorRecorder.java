@@ -3,6 +3,8 @@ package com.ncku.steven.musiclistener;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,47 +18,32 @@ public class SensorRecorder implements SensorEventListener {
     int time;
     static Date start;
     static Date end;
-    Sensor sensor;
-
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
 
+    static Sensor acc_Sensor;
+    static Sensor mag_Sensor;
+    static Sensor light_Sensor;
+    static Sensor noise_Sensor;
 
-/*
-    static Timer t = new Timer();
-    TimerTask task=new TimerTask() {
-        @Override
-        public void run() {
-            if(isWorking) {
+    static int numAcc=0;
+    static double total_Acc[]=new double[3];
 
-                time++;
-            }
-        }
-    };*/
-
-    int numAcc=0;
-    double avgAcc[]=new double[3];
     int numMag=0;
-    double avgMag[]=new double[3];
+    double total_Mag[]=new double[3];
     int numLight=0;
-    double avgLight=0;
+    double total_Light=0;
     int numNoise=0;
-    double avgNoise=0;
+    double total_Noise=0;
 
     SensorRecorder()
     {
-        this.init();
+        //this.init();
     }
-
-    void init()
-    {
-        //take sec as unit
-        //this.t.schedule(task,0,1000);
-    }
-    void setStart()
+    void setStartStamp()
     {
         this.start= new Date(System.currentTimeMillis()) ;
     }
-    void setEnd()
+    void setEndStamp()
     {
         this.end= new Date(System.currentTimeMillis()) ;
         this.setTime();
@@ -69,15 +56,25 @@ public class SensorRecorder implements SensorEventListener {
     }
     void start()
     {
-        this.isWorking=true;
-        this.setStart();
-    }
 
+        Log.d("#acc_log","start");
+
+        this.isWorking=true;
+        this.setStartStamp();
+        this.acc_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+        //Log.d("#sen",Boolean.toString(CollectService.sensorManager.getSensorList(Sensor.TYPE_ALL).isEmpty()));
+
+
+    }
     void stop()
     {
+        Log.d("#acc_log","stop");
+
         this.isWorking=false;
-        this.setEnd();
-        //this.t.cancel();
+        this.setEndStamp();
+        this.acc_Sensor=null;
+        CollectService.sensorManager.unregisterListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
     }
     void reset()
     {
@@ -87,36 +84,38 @@ public class SensorRecorder implements SensorEventListener {
         this.numAcc=0;
         this.numMag=0;
         for(int i=0;i<3;i++) {
-            avgAcc[i] =0;
-            avgMag[i] =0;
+            total_Acc[i] =0;
+            total_Mag[i] =0;
         }
         this.numLight=0;
-        this.avgLight=0;
+        this.total_Light=0;
         this.numNoise=0;
-        this.avgNoise=0;
+        this.total_Noise=0;
         //this.stop();
     }
-    void updateAcc(double val[])
+    void updateAcc(SensorEvent val)
     {
+        this.numAcc++;
         for(int i=0;i<3;i++) {
-            avgAcc[i] = (avgAcc[i] * numAcc + val[i]) / ++numAcc;
-            //numAcc++;
+            this.total_Acc[i] += (double)val.values[i];
         }
     }
-    void updateMag(double val[])
+    void updateMag(SensorEvent val)
     {
+        this.numMag++;
         for(int i=0;i<3;i++) {
-            avgMag[i] = (avgMag[i] * numMag + val[i]) / ++numMag;
-            //numMag++;
+            this.total_Mag[i] += (double)val.values[i];
         }
     }
     void updateLight(double l)
     {
-        avgLight=(avgLight*numLight+l)/++numLight;
+        this.numLight++;
+        this.total_Light+=l;
     }
     void updateNoise(double n)
     {
-        avgNoise=(avgNoise*numNoise+n)/++numNoise;
+        this.numNoise++;
+        this.total_Noise+=n;
     }
 
     @Override
@@ -126,6 +125,21 @@ public class SensorRecorder implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        if(event.sensor.equals(this.acc_Sensor)&&this.isWorking==true)
+        {
+            Log.d("#acc",Float.toString(event.values[0])+"\t"+Float.toString(event.values[1])+"\t"+Float.toString(event.values[2]));
+            this.updateAcc(event);
+        }
+
+
+        if(event.sensor.equals(this.acc_Sensor)&& this.isWorking==false)
+        {
+            Log.d("#acc_error", "!!");
+            Log.d("#acc", Float.toString(event.values[0]) + "\t" + Float.toString(event.values[1]) + "\t" + Float.toString(event.values[2]));
+        }
+        else{
+            //Log.d("#acc_error", "@@");
+        }
 
     }
 }

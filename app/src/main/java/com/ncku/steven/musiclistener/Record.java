@@ -49,16 +49,16 @@ public class Record {
     void addSensorData(SensorRecorder sr)
     {
         this.time=sr.time;
-        //this.start=sr.start;
-        //this.end=sr.end;
-        this.accX=sr.avgAcc[0];
-        this.accY=sr.avgAcc[1];
-        this.accZ=sr.avgAcc[2];
-        this.magX=sr.avgMag[0];
-        this.magY=sr.avgMag[1];
-        this.magZ=sr.avgMag[2];
-        this.light=sr.avgLight;
-        this.noise=sr.avgNoise;
+        this.accX=sr.total_Acc[0]/(double)sr.numAcc;
+        this.accY=sr.total_Acc[1]/(double)sr.numAcc;
+        this.accZ=sr.total_Acc[2]/(double)sr.numAcc;
+
+        this.magX=sr.total_Mag[0]/sr.numMag;
+        this.magY=sr.total_Mag[1]/sr.numMag;
+        this.magZ=sr.total_Mag[2]/sr.numMag;
+
+        this.light=sr.total_Light/sr.numLight;
+        this.noise=sr.total_Noise/sr.numNoise;
     }
     void reset()
     {
