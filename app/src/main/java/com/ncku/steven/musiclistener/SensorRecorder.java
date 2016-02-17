@@ -20,20 +20,31 @@ public class SensorRecorder implements SensorEventListener {
     static Date end;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
 
-    static Sensor acc_Sensor;
+    static Sensor acc_Sensor;   //
     static Sensor mag_Sensor;
+    static Sensor ori_Sensor;
+    static Sensor gyr_Sensor;
     static Sensor light_Sensor;
+    //static Sensor pro_Sensor;
+    static Sensor rot_Sensor;
+
     static Sensor noise_Sensor;
 
     static int numAcc=0;
-    static double total_Acc[]=new double[3];
+    static float total_Acc[]=new float[3];
+    static int numMag=0;
+    static float total_Mag[]=new float[3];
+    static int numOri=0;
+    static float total_Ori[]=new float[3];
+    static int numGyr=0;
+    static float total_Gyr[]=new float[3];
+    static int numLight=0;
+    static float total_Light=0;
+    static int numRot=0;
+    static float total_Rot[]=new float[3];
 
-    int numMag=0;
-    double total_Mag[]=new double[3];
-    int numLight=0;
-    double total_Light=0;
-    int numNoise=0;
-    double total_Noise=0;
+    static int numNoise=0;
+    static float total_Noise=0;
 
     SensorRecorder()
     {
@@ -54,27 +65,71 @@ public class SensorRecorder implements SensorEventListener {
         this.time=tmp.intValue()/1000;
 
     }
+    void registerSensor()
+    {
+        this.acc_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION), SensorManager.SENSOR_DELAY_NORMAL);
+
+        this.mag_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD), SensorManager.SENSOR_DELAY_NORMAL);
+
+        this.ori_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_NORMAL);
+
+        this.gyr_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE), SensorManager.SENSOR_DELAY_NORMAL);
+
+        this.light_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT), SensorManager.SENSOR_DELAY_NORMAL);
+
+        this.rot_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR), SensorManager.SENSOR_DELAY_NORMAL);
+        /*
+        this.noise_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.);
+        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT), SensorManager.SENSOR_DELAY_NORMAL);
+*/
+
+    }
+    void unregisterSensor()
+    {
+        /*
+        CollectService.sensorManager.unregisterListener(this, this.acc_Sensor);
+        CollectService.sensorManager.unregisterListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
+        this.acc_Sensor=null;
+
+        CollectService.sensorManager.unregisterListener(this, this.mag_Sensor);
+        CollectService.sensorManager.unregisterListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD));
+        this.mag_Sensor=null;
+
+        CollectService.sensorManager.unregisterListener(this, this.light_Sensor);
+        CollectService.sensorManager.unregisterListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT));
+        this.light_Sensor=null;*/
+        CollectService.sensorManager.unregisterListener(this);
+        this.acc_Sensor=null;   //
+        this.mag_Sensor=null;
+        this.ori_Sensor=null;
+        this.gyr_Sensor=null;
+        this.light_Sensor=null;
+        this.rot_Sensor=null;
+
+    }
+    ///////////////////////////////////////////
     void start()
     {
 
-        Log.d("#acc_log","start");
+        Log.d("#acc_log", "start");
 
         this.isWorking=true;
         this.setStartStamp();
-        this.acc_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-        //Log.d("#sen",Boolean.toString(CollectService.sensorManager.getSensorList(Sensor.TYPE_ALL).isEmpty()));
-
-
+        this.registerSensor();
     }
     void stop()
     {
-        Log.d("#acc_log","stop");
+        Log.d("#acc_log", "stop");
 
         this.isWorking=false;
         this.setEndStamp();
-        this.acc_Sensor=null;
-        CollectService.sensorManager.unregisterListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
+        this.unregisterSensor();
     }
     void reset()
     {
@@ -93,44 +148,98 @@ public class SensorRecorder implements SensorEventListener {
         this.total_Noise=0;
         //this.stop();
     }
+    ///////////////////////////////////////////
     void updateAcc(SensorEvent val)
     {
         this.numAcc++;
         for(int i=0;i<3;i++) {
-            this.total_Acc[i] += (double)val.values[i];
+            this.total_Acc[i] += val.values[i];
         }
     }
     void updateMag(SensorEvent val)
     {
         this.numMag++;
         for(int i=0;i<3;i++) {
-            this.total_Mag[i] += (double)val.values[i];
+            this.total_Mag[i] += val.values[i];
         }
     }
-    void updateLight(double l)
+    void updateOri(SensorEvent val)
+    {
+        this.numOri++;
+        for(int i=0;i<3;i++) {
+            this.total_Ori[i] += val.values[i];
+        }
+    }
+    void updateGyr(SensorEvent val)
+    {
+        this.numGyr++;
+        for(int i=0;i<3;i++) {
+            this.total_Gyr[i] += val.values[i];
+        }
+    }
+    void updateLight(SensorEvent val)
     {
         this.numLight++;
-        this.total_Light+=l;
+        this.total_Light+=val.values[0];
     }
-    void updateNoise(double n)
+    void updateRot(SensorEvent val)
+    {
+        this.numRot++;
+        for(int i=0;i<3;i++) {
+            this.total_Rot[i] += val.values[i];
+        }
+    }
+
+    void updateNoise(SensorEvent n)
     {
         this.numNoise++;
-        this.total_Noise+=n;
+        this.total_Noise+=n.values[0];
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }
-
     @Override
-    public void onSensorChanged(SensorEvent event) {
+    public void onSensorChanged(SensorEvent event)
+    {
         if(event.sensor.equals(this.acc_Sensor)&&this.isWorking==true)
         {
             Log.d("#acc",Float.toString(event.values[0])+"\t"+Float.toString(event.values[1])+"\t"+Float.toString(event.values[2]));
             this.updateAcc(event);
         }
+        else if(event.sensor.equals(this.mag_Sensor)&&this.isWorking==true)
+        {
+            Log.d("#mag",Float.toString(event.values[0])+"\t"+Float.toString(event.values[1])+"\t"+Float.toString(event.values[2]));
+            this.updateMag(event);
+        }
+        else if(event.sensor.equals(this.ori_Sensor)&&this.isWorking==true)
+        {
+            Log.d("#ori",Float.toString(event.values[0])+"\t"+Float.toString(event.values[1])+"\t"+Float.toString(event.values[2]));
+            this.updateOri(event);
+        }
+        else if(event.sensor.equals(this.gyr_Sensor)&&this.isWorking==true)
+        {
+            Log.d("#gyr",Float.toString(event.values[0])+"\t"+Float.toString(event.values[1])+"\t"+Float.toString(event.values[2]));
+            this.updateGyr(event);
+        }
+        else if(event.sensor.equals(this.light_Sensor)&&this.isWorking==true)
+        {
+            Log.d("#light",Float.toString(event.values[0]));
+            this.updateLight(event);
+        }
+        else if(event.sensor.equals(this.rot_Sensor)&&this.isWorking==true)
+        {
+            Log.d("#rot",Float.toString(event.values[0])+"\t"+Float.toString(event.values[1])+"\t"+Float.toString(event.values[2]));
+            this.updateRot(event);
+        }
+        else
+        {
+            Log.d("#my_sensor_error",event.toString());
+        }
 
+
+
+/*
 
         if(event.sensor.equals(this.acc_Sensor)&& this.isWorking==false)
         {
@@ -140,6 +249,6 @@ public class SensorRecorder implements SensorEventListener {
         else{
             //Log.d("#acc_error", "@@");
         }
-
+*/
     }
 }

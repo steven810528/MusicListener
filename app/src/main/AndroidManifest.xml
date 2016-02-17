@@ -29,14 +29,14 @@
         </activity>
 
 
-        <service android:name=".CollectService"/>
+        <service android:name=".CollectService">
+        </service>
+
 
         <receiver android:name=".MusicBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.htc.music.metachanged"/>
                 <action android:name="com.htc.music.playstatechanged"/>
-
-
             </intent-filter>
         </receiver>
 

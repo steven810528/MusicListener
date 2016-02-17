@@ -15,34 +15,32 @@ import java.util.Date;
  * Created by steven on 2016/2/7.
  */
 public class MusicBroadcastReceiver extends BroadcastReceiver {
-    static String userIMEI="user_deafult";
+    static String userIMEI="user_default";
     static String artistName;
     static String album;
     static String track;
-
     static Record r=new Record();
 
     SensorRecorder sr=new SensorRecorder();
-
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
         Log.d("#my", "============================================");
 
-
         //save the previous record when the buffer is not empty
         //
         if(this.sr.isWorking && intent.getAction().toString().indexOf("metachanged")>0)
         {
             Log.d("#my", "next song");
-            this.sr.stop();
+            this.sr.setEndStamp();
 
             r.addSensorData(this.sr);
             this.save2Cloud();
 
             this.sr.reset();
-            this.sr.start();
+            this.sr.setStartStamp();
+            //this.sr.start();
 
             track = intent.getStringExtra("track");
             artistName = intent.getStringExtra("artist");
@@ -85,8 +83,7 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         }
 
     }
-    public void save2Cloud()
-    {
+    public void save2Cloud() {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis()) ; // 獲取當前時間
@@ -104,9 +101,25 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         testObject.put("User", r.userIMEI);
         testObject.put("Track", r.musicName);
         testObject.put("How_Long", r.time);
-        testObject.put("Acc_X", Double.toString(r.accX));
-        testObject.put("Acc_Y", Double.toString(r.accY));
-        testObject.put("Acc_Z", Double.toString(r.accZ));
+        testObject.put("Acc_X", Float.toString(r.accX));
+        testObject.put("Acc_Y", Float.toString(r.accY));
+        testObject.put("Acc_Z", Float.toString(r.accZ));
+        testObject.put("Mag_X", Float.toString(r.magX));
+        testObject.put("Mag_Y", Float.toString(r.magY));
+        testObject.put("Mag_Z", Float.toString(r.magZ));
+        testObject.put("Ori_A", Float.toString(r.oriA));
+        testObject.put("Ori_P", Float.toString(r.oriP));
+        testObject.put("Ori_R", Float.toString(r.oriR));
+        testObject.put("Gyr_X", Float.toString(r.gyrX));
+        testObject.put("Gyr_Y", Float.toString(r.gyrY));
+        testObject.put("Gyr_Z", Float.toString(r.gyrZ));
+
+        testObject.put("Light", Float.toString(r.light));
+
+        testObject.put("Rot_X", Float.toString(r.rotX));
+        testObject.put("Rot_Y", Float.toString(r.rotY));
+        testObject.put("Rot_Z", Float.toString(r.rotZ));
+
         testObject.put("When", date);
 
         //

@@ -9,20 +9,31 @@ public class Record {
     String album;
     String artist;
 
-    String start;
-    String end;
     int time;
 
-    double accX;
-    double accY;
-    double accZ;
+    float accX;
+    float accY;
+    float accZ;
 
-    double magX;
-    double magY;
-    double magZ;
+    float magX;
+    float magY;
+    float magZ;
 
-    double light;
-    double noise;
+    float oriA;
+    float oriP;
+    float oriR;
+
+    float gyrX;
+    float gyrY;
+    float gyrZ;
+
+    float light;
+
+    float rotX;
+    float rotY;
+    float rotZ;
+
+    float noise;
     Record(){
 
     }
@@ -49,15 +60,29 @@ public class Record {
     void addSensorData(SensorRecorder sr)
     {
         this.time=sr.time;
-        this.accX=sr.total_Acc[0]/(double)sr.numAcc;
-        this.accY=sr.total_Acc[1]/(double)sr.numAcc;
-        this.accZ=sr.total_Acc[2]/(double)sr.numAcc;
 
-        this.magX=sr.total_Mag[0]/sr.numMag;
-        this.magY=sr.total_Mag[1]/sr.numMag;
-        this.magZ=sr.total_Mag[2]/sr.numMag;
+        this.accX=sr.total_Acc[0]/(float)sr.numAcc;
+        this.accY=sr.total_Acc[1]/(float)sr.numAcc;
+        this.accZ=sr.total_Acc[2]/(float)sr.numAcc;
+
+        this.magX=sr.total_Mag[0]/(float)sr.numMag;
+        this.magY=sr.total_Mag[1]/(float)sr.numMag;
+        this.magZ=sr.total_Mag[2]/(float)sr.numMag;
+
+        this.oriA=sr.total_Ori[0]/(float)sr.numOri;
+        this.oriP=sr.total_Ori[1]/(float)sr.numOri;
+        this.oriR=sr.total_Ori[2]/(float)sr.numOri;
+
+        this.gyrX=sr.total_Ori[0]/(float)sr.numGyr;
+        this.gyrY=sr.total_Ori[1]/(float)sr.numGyr;
+        this.gyrZ=sr.total_Ori[2]/(float)sr.numGyr;
 
         this.light=sr.total_Light/sr.numLight;
+
+        this.rotX=sr.total_Rot[0]/(float)sr.numRot;
+        this.rotY=sr.total_Rot[1]/(float)sr.numRot;
+        this.rotZ=sr.total_Rot[2]/(float)sr.numRot;
+
         this.noise=sr.total_Noise/sr.numNoise;
     }
     void reset()
