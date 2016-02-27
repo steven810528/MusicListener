@@ -5,12 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.parse.ParseException;
-import com.parse.ParseObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Created by steven on 2016/2/7.
  */
@@ -21,7 +15,7 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
     static String track;
     static Record r=new Record();
 
-    SensorRecorder sr=new SensorRecorder();
+    static SensorRecorder sr=new SensorRecorder();
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -30,13 +24,15 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
 
         //save the previous record when the buffer is not empty
         //
-        if(this.sr.isWorking && intent.getAction().toString().indexOf("metachanged")>0)
+        if(CollectService.isWorking==true&&this.sr.isWorking && intent.getAction().toString().indexOf("metachanged")>0)
         {
             Log.d("#my", "next song");
             this.sr.setEndStamp();
 
             r.addSensorData(this.sr);
-            this.save2Cloud();
+            //save2K
+            //r.save2Kinvey();
+            this.r.save2Cloud();
 
             this.sr.reset();
             this.sr.setStartStamp();
@@ -50,7 +46,7 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
             Log.d("#my", " ");
         }
         //start to play
-        else if(this.sr.isWorking ==false && intent.getAction().toString().indexOf("playstatechanged")>0)
+        else if(CollectService.isWorking==true&&this.sr.isWorking ==false && intent.getAction().toString().indexOf("playstatechanged")>0)
         {
             Log.d("#my", "start to play");
 
@@ -59,30 +55,33 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
             track = intent.getStringExtra("track");
             artistName = intent.getStringExtra("artist");
             album = intent.getStringExtra("album");
-            this.r.update(userIMEI,track,album,artistName);
+            this.r.update(userIMEI, track, album, artistName);
 
             Log.d("#my", " ");
         }
         //stop to play
-        else if(this.sr.isWorking ==true && intent.getAction().toString().indexOf("playstatechanged")>0) {
+        else if(CollectService.isWorking==true&&this.sr.isWorking ==true && intent.getAction().toString().indexOf("playstatechanged") > 0) {
 
             Log.d("#my", "stop to play");
 
             this.sr.stop();
 
             r.addSensorData(this.sr);
-            this.save2Cloud();
+            this.r.save2Cloud();
+            //save2K
+            //r.save2Kinvey();
 
             this.sr.reset();
 
         }
-        else
-        {
+        else if(CollectService.isWorking == false) {
             Log.d("#my", "else case");
-
+            //sr.stop();
+            sr=null;
         }
 
     }
+    /*
     public void save2Cloud() {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
@@ -135,7 +134,7 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         }
         Log.d("#my", "done");
 
-    }
+    }*/
     public void setUser(String s)
     {
         this.userIMEI=s;

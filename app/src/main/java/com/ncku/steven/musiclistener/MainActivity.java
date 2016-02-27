@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.parse.Parse;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     //static ContextRecord cr=new ContextRecord();
 
     //String Song;
+    Button start_B;
+    Button stop_B;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +40,30 @@ public class MainActivity extends AppCompatActivity {
         });
         */
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this);
-        //sr.init();
-
+        //Parse.enableLocalDatastore(this);
+        //Parse.initialize(this);
+        start_B = (Button)findViewById(R.id.start_button);
+        stop_B  = (Button)findViewById(R.id.stop_button);
+        start_B.setOnClickListener(myListener);
+        stop_B.setOnClickListener(myListener);
 
         //
         //啟動服務
-        Intent intent = new Intent(MainActivity.this, CollectService.class);
-        startService(intent);
+        intent = new Intent(MainActivity.this, CollectService.class);
+        //intent.setAction("steven.push");
+        this.startService(intent);
 
+        //Intent intent_maintain = new Intent(MainActivity.this, MaintainService.class);
+        //startService(intent_maintain);
 
+        //this.onPause();
+        //this.onStop();
+        //this.onDestroy();
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         //mbr = new  MusicBroadcastReceiver();
         //IntentFilter intentFilter = new  IntentFilter();
         /*
@@ -109,6 +122,28 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private Button.OnClickListener myListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v){
+            if(v.getId()==R.id.start_button)
+            {
+                //Intent intent = new Intent(MainActivity.this, CollectService.class);
+                //intent.setAction("steven.push");
+                intent = new Intent(MainActivity.this, CollectService.class);
+                startService(intent);
+                Toast.makeText(MainActivity.this, "已開始運行", Toast.LENGTH_SHORT).show();
+            }
+            else if(v.getId()==R.id.stop_button)
+            {
+                //Intent intent = new Intent(MainActivity.this, CollectService.class);
+                //intent.setAction("steven.push");
+                intent = new Intent(MainActivity.this, CollectService.class);
+                stopService(intent);
+                Toast.makeText(MainActivity.this, "已停止運行", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 
 }
 

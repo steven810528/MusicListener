@@ -4,6 +4,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.AudioFormat;
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
@@ -13,7 +16,7 @@ import java.util.Date;
  * Created by steven on 2016/2/7.
  */
 public class SensorRecorder implements SensorEventListener {
-
+    static String TAG="#SensorRecorder";
     static boolean isWorking=false;
     int time;
     static Date start;
@@ -28,7 +31,14 @@ public class SensorRecorder implements SensorEventListener {
     //static Sensor pro_Sensor;
     static Sensor rot_Sensor;
 
-    static Sensor noise_Sensor;
+    AudioRecord noise_Sensor;
+    static  final  int  SAMPLE_RATE_IN_HZ =  8000 ;
+    static  final  int  channelConfiguration = AudioFormat.CHANNEL_CONFIGURATION_MONO;
+    static  final  int  audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
+
+    static  final  int  BUFFER_SIZE = AudioRecord.getMinBufferSize(SAMPLE_RATE_IN_HZ,
+            channelConfiguration, audioEncoding);
+    Object mLock;
 
     static int numAcc=0;
     static float total_Acc[]=new float[3];
@@ -84,10 +94,58 @@ public class SensorRecorder implements SensorEventListener {
 
         this.rot_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR), SensorManager.SENSOR_DELAY_NORMAL);
-        /*
-        this.noise_Sensor=CollectService.sensorManager.getDefaultSensor(Sensor.);
-        CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT), SensorManager.SENSOR_DELAY_NORMAL);
-*/
+
+        try {
+            //noise_Sensor.release();
+            noise_Sensor = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                    SAMPLE_RATE_IN_HZ, channelConfiguration,
+                    audioEncoding, BUFFER_SIZE);
+            mLock = new Object();
+            //noise_Sensor.startRecording();
+        }
+        catch (Exception e)
+        {
+            Log.d(TAG+"noise",e.toString());
+            Log.d(TAG+"noise",Boolean.toString(noise_Sensor==null));
+
+        }
+
+        new  Thread( new  Runnable() {
+            @Override
+            public  void  run() {
+
+                noise_Sensor.startRecording();
+                short [] buffer =  new  short [BUFFER_SIZE];
+                while  (SensorRecorder.isWorking) {
+                    //r是實際讀取的數據長度，一般而言r會小於buffersize
+                    int  r = noise_Sensor.read(buffer,  0 , BUFFER_SIZE);
+                    long  v =  0 ;
+                    // 將 buffer 內容取出，進行平方和運算
+                    for  ( int  i =  0 ; i < buffer.length; i++) {
+                        v += buffer[i] * buffer[i];
+                    }
+                    // 平方和除以數據總長度，得到音量大小。
+                    double  mean = v / ( double ) r;
+                    double  volume =  10  * Math.log10(mean);
+                    //Log.d(TAG,  "分貝值:"  + volume);
+                    SensorRecorder.updateNoise(volume);
+                    Log.d(TAG + "noise", Double.toString(volume));
+                    // 大概一秒十次
+                    synchronized  (mLock) {
+                        try  {
+                            mLock.wait( 1000 );
+                        }  catch  (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                //noise_Sensor.stop();
+                //noise_Sensor.release();
+                //noise_Sensor =  null ;
+            }
+        }).start();
+        //this.noise_Sensor=new MediaRecorder();
+        //this.noise_Sensor.setAudioSource(MediaRecorder.AudioSource.MIC);
 
     }
     void unregisterSensor()
@@ -111,6 +169,19 @@ public class SensorRecorder implements SensorEventListener {
         this.gyr_Sensor=null;
         this.light_Sensor=null;
         this.rot_Sensor=null;
+
+        try {
+            this.noise_Sensor.stop();
+            this.noise_Sensor.release();
+        }
+        catch (Exception e)
+        {
+            Log.d(TAG,e.toString());
+        }
+            this.noise_Sensor=null;
+        //this.noise_Sensor.stop();
+        //this.noise_Sensor.release();
+        //this.noise_Sensor=null;
 
     }
     ///////////////////////////////////////////
@@ -189,11 +260,10 @@ public class SensorRecorder implements SensorEventListener {
             this.total_Rot[i] += val.values[i];
         }
     }
-
-    void updateNoise(SensorEvent n)
+    static void updateNoise(double n)
     {
-        this.numNoise++;
-        this.total_Noise+=n.values[0];
+        numNoise++;
+        total_Noise+=(float)n;
     }
 
     @Override
@@ -252,3 +322,4 @@ public class SensorRecorder implements SensorEventListener {
 */
     }
 }
+

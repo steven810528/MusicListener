@@ -15,5 +15,86 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Music Listener 控制介面"
+        android:textSize="32dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/title_textview"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout2">
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="120dp"
+            android:text="開始運行"
+            android:id="@+id/start_button"
+            android:textSize="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/stop_button"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="120dp"
+            android:text="停止運行"
+            android:id="@+id/stop_button"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/start_button"
+            android:layout_alignBottom="@+id/start_button"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_textview"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用者名稱："
+            android:id="@+id/user_textview"
+            android:textSize="24dp"
+            android:layout_above="@+id/status_textview"
+            android:layout_alignStart="@+id/status_textview"
+            android:layout_alignEnd="@+id/stop_button"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="當前運行狀態："
+            android:id="@+id/status_textview"
+            android:textSize="24dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/stop_button"
+            android:layout_alignEnd="@+id/stop_button"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已運行時間："
+            android:id="@+id/time_textview"
+            android:textSize="24dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/stop_button"
+            android:layout_alignEnd="@+id/stop_button"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+
+    </LinearLayout>
+
 </RelativeLayout>
