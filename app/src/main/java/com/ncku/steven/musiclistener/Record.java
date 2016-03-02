@@ -168,25 +168,8 @@ public class Record {
     }
     void save2Kin()
     {
-        /*
-        Log.d(TAG+"kinF",this.musicName);
-        AsyncAppData<Record> myevents = CollectService.mClient.appData("eventsCollection",Record.class);
-        myevents.save(this, new KinveyClientCallback<Record>() {
-            @Override
-            public void onFailure(Throwable e) {
-                //Log.d("#EN",k.getUser());
-                Log.e(TAG, "failed to save event data", e);
-            }
-
-            @Override
-            public void onSuccess(Record r) {
-                Log.d(TAG, "saved data for entity " + r.musicName);
-            }
-        });
-        Log.d(TAG+"kinF",this.musicName);
-        */
         AsyncAppData<KinveyEntity> myevents = CollectService.mClient.appData("eventsCollection",KinveyEntity.class);
-
+        //myevents.setOffline(OfflinePolicy.ONLINE_FIRST, new SqlLiteOfflineStore<KinveyEntity>(c));
         KinveyEntity k=new KinveyEntity(this,date);
 
         Log.d("Tag", k.userIMEI);

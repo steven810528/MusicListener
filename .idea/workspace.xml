@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="noise" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="#br" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -46,48 +46,30 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/CollectService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+              <caret line="83" column="52" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
               <folding>
                 <element signature="docComment;class#CollectService#0" expanded="false" />
-                <element signature="class#796:1857" expanded="false" />
-                <element signature="e#1100#1142#0" expanded="false" />
-                <element signature="method#onCreate#0;class#CollectService#0" expanded="false" />
-                <element signature="class#2972:3279" expanded="false" />
-                <element signature="class#3342:3910" expanded="false" />
-                <element signature="method#onFailure#0;class#3342:3910" expanded="false" />
-                <element signature="method#onSuccess#0;class#3342:3910" expanded="false" />
-                <element signature="class#3974:4541" expanded="false" />
-                <element signature="method#onFailure#0;class#3974:4541" expanded="false" />
-                <element signature="method#onSuccess#0;class#3974:4541" expanded="false" />
-                <element signature="e#5355#5433#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#CollectService#0" expanded="false" />
+                <element signature="class#767:1828" expanded="false" />
+                <element signature="method#run#0;class#767:1828" expanded="false" />
+                <element signature="e#1071#1113#0" expanded="false" />
+                <element signature="class#2680:2987" expanded="false" />
+                <element signature="class#3050:3622" expanded="false" />
+                <element signature="method#onFailure#0;class#3050:3622" expanded="false" />
+                <element signature="method#onSuccess#0;class#3050:3622" expanded="false" />
+                <element signature="class#3684:4255" expanded="false" />
+                <element signature="method#onFailure#0;class#3684:4255" expanded="false" />
+                <element signature="method#onSuccess#0;class#3684:4255" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3540587">
-              <caret line="44" column="51" selection-start-line="44" selection-start-column="51" selection-end-line="44" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MusicBroadcastReceiver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MusicBroadcastReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
-              <folding>
-                <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-                <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-                <element signature="e#641#696#0" expanded="false" />
-                <element signature="e#963#971#0" expanded="false" />
-                <element signature="e#2232#2240#0" expanded="false" />
-              </folding>
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/Record.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
+              <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
               <folding>
                 <element signature="docComment;class#Record#0" expanded="false" />
                 <element signature="method#Record#0;class#Record#0" expanded="false" />
@@ -105,11 +87,71 @@
                 <element signature="method#addSensorData#0;class#Record#0" expanded="false" />
                 <element signature="method#save2Cloud#0;class#Record#0" expanded="false" />
                 <element signature="e#2863#2868#0" expanded="false" />
-                <element signature="method#save2Par#0;class#Record#0" expanded="false" />
-                <element signature="method#save2Kin#0;class#Record#0" expanded="false" />
-                <element signature="class#5405:5798" expanded="false" />
-                <element signature="method#onFailure#0;class#5405:5798" expanded="false" />
-                <element signature="method#onSuccess#0;class#5405:5798" expanded="false" />
+                <element signature="class#4877:5270" expanded="false" />
+                <element signature="method#onFailure#0;class#4877:5270" expanded="false" />
+                <element signature="method#onSuccess#0;class#4877:5270" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusicBroadcastReceiver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MusicBroadcastReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+              <folding>
+                <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BroadcastHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/BroadcastHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47368422">
+              <caret line="130" column="35" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
+              <folding>
+                <element signature="docComment;class#BroadcastHandler#0" expanded="false" />
+                <element signature="method#handle#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="method#htcHandler#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="e#1648#1703#0" expanded="false" />
+                <element signature="method#spotifyHandler#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="method#googleHandler#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="method#commandStart#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="method#commandNext#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="method#commandStop#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="method#setSource#0;class#BroadcastHandler#0" expanded="false" />
+                <element signature="e#5725#5758#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="154" column="13" selection-start-line="154" selection-start-column="13" selection-end-line="154" selection-end-column="13" />
+              <folding>
+                <element signature="e#348#382#0" expanded="false" />
+                <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#1267#1302#0" expanded="false" />
+                <element signature="e#1664#1666#0" expanded="false" />
+                <element signature="e#1839#1919#0" expanded="false" />
+                <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#2106#2144#0" expanded="false" />
+                <element signature="e#2507#2561#0" expanded="false" />
+                <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#4146#4204#0" expanded="false" />
+                <element signature="e#4770#4840#0" expanded="false" />
+                <element signature="e#5188#5258#0" expanded="false" />
+                <element signature="e#5605#5675#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -119,20 +161,17 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/SensorRecorder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="236" column="15" selection-start-line="236" selection-start-column="15" selection-end-line="236" selection-end-column="15" />
+              <caret line="210" column="30" selection-start-line="210" selection-start-column="30" selection-end-line="210" selection-end-column="30" />
               <folding>
                 <element signature="docComment;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#setEndStamp#0;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#setTime#0;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#registerSensor#0;class#SensorRecorder#0" expanded="false" />
-                <element signature="e#5584#5606#0" expanded="false" />
-                <element signature="e#5732#5772#0" expanded="false" />
                 <element signature="method#unregisterSensor#0;class#SensorRecorder#0" expanded="false" />
-                <element signature="e#7125#7152#0" expanded="false" />
+                <element signature="e#6977#7004#0" expanded="false" />
                 <element signature="method#start#0;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#stop#0;class#SensorRecorder#0" expanded="false" />
-                <element signature="method#reset#0;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#updateAcc#0;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#updateMag#0;class#SensorRecorder#0" expanded="false" />
                 <element signature="method#updateOri#0;class#SensorRecorder#0" expanded="false" />
@@ -1350,7 +1389,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4366628494000" />
+        <entry key="$PROJECT_DIR$" value="4367165827000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1730,15 +1769,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/ContextRecord.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MaintainService.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/KinveyEntity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MusicBroadcastReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/Record.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/SensorRecorder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/KinveyEntity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/CollectService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MusicBroadcastReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/BroadcastHandler.java" />
       </list>
     </option>
   </component>
@@ -1828,6 +1868,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicListener" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicListener" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicListener" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MusicListener" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".gradle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="2.8" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskArtifacts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -1839,15 +1915,9 @@
               <option name="myItemId" value="MusicListener" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MusicListener" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1858,10 +1928,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1892,8 +1958,12 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="musiclistener" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1917,10 +1987,12 @@
     <property name="FullScreen" value="true" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="HT53HYJ06441" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus4" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="468" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="266" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../未命名檔案夾/MusicListener 拷貝" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/app/libs/backendless.jar!/" />
     <property name="dynamic.classpath" value="false" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -1984,6 +2056,15 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -2122,7 +2203,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.674221" sideWeight="0.3352181" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14022663" sideWeight="0.75444263" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23371105" sideWeight="0.75444263" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2194,35 +2275,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
-          <folding>
-            <element signature="docComment;class#Record#0" expanded="false" />
-            <element signature="method#Record#0;class#Record#0" expanded="false" />
-            <element signature="method#Record#1;class#Record#0" expanded="false" />
-            <element signature="method#update#0;class#Record#0" expanded="false" />
-            <element signature="method#addSensorData#0;class#Record#0" expanded="false" />
-            <element signature="method#save2Cloud#0;class#Record#0" expanded="false" />
-            <element signature="e#2863#2868#0" expanded="false" />
-            <element signature="method#save2Par#0;class#Record#0" expanded="false" />
-            <element signature="method#save2Kin#0;class#Record#0" expanded="false" />
-            <element signature="class#5405:5798" expanded="false" />
-            <element signature="method#onFailure#0;class#5405:5798" expanded="false" />
-            <element signature="method#onSuccess#0;class#5405:5798" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/KinveyEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2239,10 +2291,8 @@
           <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
           <folding>
             <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="e#641#696#0" expanded="false" />
-            <element signature="e#963#971#0" expanded="false" />
-            <element signature="e#2232#2240#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2254,10 +2304,10 @@
           <folding>
             <element signature="docComment;class#SensorRecorder#0" expanded="false" />
             <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setStartStamp#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setTime#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="e#7125#7152#0" expanded="false" />
+            <element signature="method#setStartStamp#0;class#SensorRecorder#0" expanded="false" />
+            <element signature="e#6977#7004#0" expanded="false" />
             <element signature="method#start#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#reset#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#updateAcc#0;class#SensorRecorder#0" expanded="false" />
@@ -2277,18 +2327,16 @@
           <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
           <folding>
             <element signature="docComment;class#CollectService#0" expanded="false" />
-            <element signature="class#796:1857" expanded="false" />
-            <element signature="e#1100#1142#0" expanded="false" />
-            <element signature="method#onCreate#0;class#CollectService#0" expanded="false" />
-            <element signature="class#2972:3279" expanded="false" />
-            <element signature="class#3342:3910" expanded="false" />
-            <element signature="method#onFailure#0;class#3342:3910" expanded="false" />
-            <element signature="method#onSuccess#0;class#3342:3910" expanded="false" />
-            <element signature="class#3974:4541" expanded="false" />
-            <element signature="method#onFailure#0;class#3974:4541" expanded="false" />
-            <element signature="method#onSuccess#0;class#3974:4541" expanded="false" />
-            <element signature="e#5355#5433#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#CollectService#0" expanded="false" />
+            <element signature="class#767:1828" expanded="false" />
+            <element signature="method#run#0;class#767:1828" expanded="false" />
+            <element signature="e#1071#1113#0" expanded="false" />
+            <element signature="class#2680:2987" expanded="false" />
+            <element signature="class#3050:3622" expanded="false" />
+            <element signature="method#onFailure#0;class#3050:3622" expanded="false" />
+            <element signature="method#onSuccess#0;class#3050:3622" expanded="false" />
+            <element signature="class#3684:4255" expanded="false" />
+            <element signature="method#onFailure#0;class#3684:4255" expanded="false" />
+            <element signature="method#onSuccess#0;class#3684:4255" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2305,11 +2353,9 @@
             <element signature="method#addSensorData#0;class#Record#0" expanded="false" />
             <element signature="method#save2Cloud#0;class#Record#0" expanded="false" />
             <element signature="e#2863#2868#0" expanded="false" />
-            <element signature="method#save2Par#0;class#Record#0" expanded="false" />
-            <element signature="method#save2Kin#0;class#Record#0" expanded="false" />
-            <element signature="class#5405:5798" expanded="false" />
-            <element signature="method#onFailure#0;class#5405:5798" expanded="false" />
-            <element signature="method#onSuccess#0;class#5405:5798" expanded="false" />
+            <element signature="class#4877:5270" expanded="false" />
+            <element signature="method#onFailure#0;class#4877:5270" expanded="false" />
+            <element signature="method#onSuccess#0;class#4877:5270" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2330,10 +2376,8 @@
           <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
           <folding>
             <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="e#641#696#0" expanded="false" />
-            <element signature="e#963#971#0" expanded="false" />
-            <element signature="e#2232#2240#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2345,10 +2389,10 @@
           <folding>
             <element signature="docComment;class#SensorRecorder#0" expanded="false" />
             <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setStartStamp#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setTime#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="e#7125#7152#0" expanded="false" />
+            <element signature="method#setStartStamp#0;class#SensorRecorder#0" expanded="false" />
+            <element signature="e#6977#7004#0" expanded="false" />
             <element signature="method#start#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#reset#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#updateAcc#0;class#SensorRecorder#0" expanded="false" />
@@ -2395,18 +2439,16 @@
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#CollectService#0" expanded="false" />
-            <element signature="class#796:1857" expanded="false" />
-            <element signature="e#1100#1142#0" expanded="false" />
-            <element signature="method#onCreate#0;class#CollectService#0" expanded="false" />
-            <element signature="class#2972:3279" expanded="false" />
-            <element signature="class#3342:3910" expanded="false" />
-            <element signature="method#onFailure#0;class#3342:3910" expanded="false" />
-            <element signature="method#onSuccess#0;class#3342:3910" expanded="false" />
-            <element signature="class#3974:4541" expanded="false" />
-            <element signature="method#onFailure#0;class#3974:4541" expanded="false" />
-            <element signature="method#onSuccess#0;class#3974:4541" expanded="false" />
-            <element signature="e#5355#5433#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#CollectService#0" expanded="false" />
+            <element signature="class#767:1828" expanded="false" />
+            <element signature="method#run#0;class#767:1828" expanded="false" />
+            <element signature="e#1071#1113#0" expanded="false" />
+            <element signature="class#2680:2987" expanded="false" />
+            <element signature="class#3050:3622" expanded="false" />
+            <element signature="method#onFailure#0;class#3050:3622" expanded="false" />
+            <element signature="method#onSuccess#0;class#3050:3622" expanded="false" />
+            <element signature="class#3684:4255" expanded="false" />
+            <element signature="method#onFailure#0;class#3684:4255" expanded="false" />
+            <element signature="method#onSuccess#0;class#3684:4255" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2417,10 +2459,8 @@
           <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
           <folding>
             <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="e#641#696#0" expanded="false" />
-            <element signature="e#963#971#0" expanded="false" />
-            <element signature="e#2232#2240#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2440,10 +2480,10 @@
           <folding>
             <element signature="docComment;class#SensorRecorder#0" expanded="false" />
             <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setStartStamp#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setTime#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="e#7125#7152#0" expanded="false" />
+            <element signature="method#setStartStamp#0;class#SensorRecorder#0" expanded="false" />
+            <element signature="e#6977#7004#0" expanded="false" />
             <element signature="method#start#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#reset#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#updateAcc#0;class#SensorRecorder#0" expanded="false" />
@@ -2490,18 +2530,16 @@
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#CollectService#0" expanded="false" />
-            <element signature="class#796:1857" expanded="false" />
-            <element signature="e#1100#1142#0" expanded="false" />
-            <element signature="method#onCreate#0;class#CollectService#0" expanded="false" />
-            <element signature="class#2972:3279" expanded="false" />
-            <element signature="class#3342:3910" expanded="false" />
-            <element signature="method#onFailure#0;class#3342:3910" expanded="false" />
-            <element signature="method#onSuccess#0;class#3342:3910" expanded="false" />
-            <element signature="class#3974:4541" expanded="false" />
-            <element signature="method#onFailure#0;class#3974:4541" expanded="false" />
-            <element signature="method#onSuccess#0;class#3974:4541" expanded="false" />
-            <element signature="e#5355#5433#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#CollectService#0" expanded="false" />
+            <element signature="class#767:1828" expanded="false" />
+            <element signature="method#run#0;class#767:1828" expanded="false" />
+            <element signature="e#1071#1113#0" expanded="false" />
+            <element signature="class#2680:2987" expanded="false" />
+            <element signature="class#3050:3622" expanded="false" />
+            <element signature="method#onFailure#0;class#3050:3622" expanded="false" />
+            <element signature="method#onSuccess#0;class#3050:3622" expanded="false" />
+            <element signature="class#3684:4255" expanded="false" />
+            <element signature="method#onFailure#0;class#3684:4255" expanded="false" />
+            <element signature="method#onSuccess#0;class#3684:4255" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2524,10 +2562,8 @@
           <caret line="120" column="36" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
           <folding>
             <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="e#641#696#0" expanded="false" />
-            <element signature="e#963#971#0" expanded="false" />
-            <element signature="e#2232#2240#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2565,18 +2601,16 @@
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#CollectService#0" expanded="false" />
-            <element signature="class#796:1857" expanded="false" />
-            <element signature="e#1100#1142#0" expanded="false" />
-            <element signature="method#onCreate#0;class#CollectService#0" expanded="false" />
-            <element signature="class#2972:3279" expanded="false" />
-            <element signature="class#3342:3910" expanded="false" />
-            <element signature="method#onFailure#0;class#3342:3910" expanded="false" />
-            <element signature="method#onSuccess#0;class#3342:3910" expanded="false" />
-            <element signature="class#3974:4541" expanded="false" />
-            <element signature="method#onFailure#0;class#3974:4541" expanded="false" />
-            <element signature="method#onSuccess#0;class#3974:4541" expanded="false" />
-            <element signature="e#5355#5433#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#CollectService#0" expanded="false" />
+            <element signature="class#767:1828" expanded="false" />
+            <element signature="method#run#0;class#767:1828" expanded="false" />
+            <element signature="e#1071#1113#0" expanded="false" />
+            <element signature="class#2680:2987" expanded="false" />
+            <element signature="class#3050:3622" expanded="false" />
+            <element signature="method#onFailure#0;class#3050:3622" expanded="false" />
+            <element signature="method#onSuccess#0;class#3050:3622" expanded="false" />
+            <element signature="class#3684:4255" expanded="false" />
+            <element signature="method#onFailure#0;class#3684:4255" expanded="false" />
+            <element signature="method#onSuccess#0;class#3684:4255" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2599,10 +2633,8 @@
           <caret line="120" column="36" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
           <folding>
             <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="e#641#696#0" expanded="false" />
-            <element signature="e#963#971#0" expanded="false" />
-            <element signature="e#2232#2240#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2628,18 +2660,16 @@
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#CollectService#0" expanded="false" />
-            <element signature="class#796:1857" expanded="false" />
-            <element signature="e#1100#1142#0" expanded="false" />
-            <element signature="method#onCreate#0;class#CollectService#0" expanded="false" />
-            <element signature="class#2972:3279" expanded="false" />
-            <element signature="class#3342:3910" expanded="false" />
-            <element signature="method#onFailure#0;class#3342:3910" expanded="false" />
-            <element signature="method#onSuccess#0;class#3342:3910" expanded="false" />
-            <element signature="class#3974:4541" expanded="false" />
-            <element signature="method#onFailure#0;class#3974:4541" expanded="false" />
-            <element signature="method#onSuccess#0;class#3974:4541" expanded="false" />
-            <element signature="e#5355#5433#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#CollectService#0" expanded="false" />
+            <element signature="class#767:1828" expanded="false" />
+            <element signature="method#run#0;class#767:1828" expanded="false" />
+            <element signature="e#1071#1113#0" expanded="false" />
+            <element signature="class#2680:2987" expanded="false" />
+            <element signature="class#3050:3622" expanded="false" />
+            <element signature="method#onFailure#0;class#3050:3622" expanded="false" />
+            <element signature="method#onSuccess#0;class#3050:3622" expanded="false" />
+            <element signature="class#3684:4255" expanded="false" />
+            <element signature="method#onFailure#0;class#3684:4255" expanded="false" />
+            <element signature="method#onSuccess#0;class#3684:4255" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2650,10 +2680,8 @@
           <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
           <folding>
             <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="e#641#696#0" expanded="false" />
-            <element signature="e#963#971#0" expanded="false" />
-            <element signature="e#2232#2240#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2710,15 +2738,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MaintainService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7027027">
-          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
-          <folding>
-            <element signature="docComment;class#MaintainService#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MaintainService#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MaintainService#0" expanded="false" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2729,51 +2756,41 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.67202574">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5925927">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="39" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MusicBroadcastReceiver.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.6">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MaintainService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6757895">
+          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
           <folding>
-            <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="method#onReceive#0;class#MusicBroadcastReceiver#0" expanded="false" />
-            <element signature="e#641#696#0" expanded="false" />
-            <element signature="e#963#971#0" expanded="false" />
-            <element signature="e#2232#2240#0" expanded="false" />
+            <element signature="docComment;class#MaintainService#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MaintainService#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MaintainService#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/KinveyEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3678756">
+        <state vertical-scroll-proportion="1.0510441">
           <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2781,44 +2798,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/Record.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#Record#0" expanded="false" />
-            <element signature="method#Record#0;class#Record#0" expanded="false" />
-            <element signature="method#Record#1;class#Record#0" expanded="false" />
-            <element signature="method#update#0;class#Record#0" expanded="false" />
-            <element signature="method#addSensorData#0;class#Record#0" expanded="false" />
-            <element signature="method#save2Cloud#0;class#Record#0" expanded="false" />
-            <element signature="e#2863#2868#0" expanded="false" />
-            <element signature="method#save2Par#0;class#Record#0" expanded="false" />
-            <element signature="method#save2Kin#0;class#Record#0" expanded="false" />
-            <element signature="class#5405:5798" expanded="false" />
-            <element signature="method#onFailure#0;class#5405:5798" expanded="false" />
-            <element signature="method#onSuccess#0;class#5405:5798" expanded="false" />
-          </folding>
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/SensorRecorder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="236" column="15" selection-start-line="236" selection-start-column="15" selection-end-line="236" selection-end-column="15" />
+          <caret line="210" column="30" selection-start-line="210" selection-start-column="30" selection-end-line="210" selection-end-column="30" />
           <folding>
             <element signature="docComment;class#SensorRecorder#0" expanded="false" />
             <element signature="method#SensorRecorder#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setEndStamp#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#setTime#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#registerSensor#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="e#5584#5606#0" expanded="false" />
-            <element signature="e#5732#5772#0" expanded="false" />
             <element signature="method#unregisterSensor#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="e#7125#7152#0" expanded="false" />
+            <element signature="e#6977#7004#0" expanded="false" />
             <element signature="method#start#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#stop#0;class#SensorRecorder#0" expanded="false" />
-            <element signature="method#reset#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#updateAcc#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#updateMag#0;class#SensorRecorder#0" expanded="false" />
             <element signature="method#updateOri#0;class#SensorRecorder#0" expanded="false" />
@@ -2835,30 +2836,95 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/CollectService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+          <caret line="83" column="52" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
           <folding>
             <element signature="docComment;class#CollectService#0" expanded="false" />
-            <element signature="class#796:1857" expanded="false" />
-            <element signature="e#1100#1142#0" expanded="false" />
-            <element signature="method#onCreate#0;class#CollectService#0" expanded="false" />
-            <element signature="class#2972:3279" expanded="false" />
-            <element signature="class#3342:3910" expanded="false" />
-            <element signature="method#onFailure#0;class#3342:3910" expanded="false" />
-            <element signature="method#onSuccess#0;class#3342:3910" expanded="false" />
-            <element signature="class#3974:4541" expanded="false" />
-            <element signature="method#onFailure#0;class#3974:4541" expanded="false" />
-            <element signature="method#onSuccess#0;class#3974:4541" expanded="false" />
-            <element signature="e#5355#5433#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#CollectService#0" expanded="false" />
+            <element signature="class#767:1828" expanded="false" />
+            <element signature="method#run#0;class#767:1828" expanded="false" />
+            <element signature="e#1071#1113#0" expanded="false" />
+            <element signature="class#2680:2987" expanded="false" />
+            <element signature="class#3050:3622" expanded="false" />
+            <element signature="method#onFailure#0;class#3050:3622" expanded="false" />
+            <element signature="method#onSuccess#0;class#3050:3622" expanded="false" />
+            <element signature="class#3684:4255" expanded="false" />
+            <element signature="method#onFailure#0;class#3684:4255" expanded="false" />
+            <element signature="method#onSuccess#0;class#3684:4255" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/Record.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3540587">
-          <caret line="44" column="51" selection-start-line="44" selection-start-column="51" selection-end-line="44" selection-end-column="51" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#Record#0" expanded="false" />
+            <element signature="method#Record#0;class#Record#0" expanded="false" />
+            <element signature="method#Record#1;class#Record#0" expanded="false" />
+            <element signature="method#update#0;class#Record#0" expanded="false" />
+            <element signature="method#addSensorData#0;class#Record#0" expanded="false" />
+            <element signature="method#save2Cloud#0;class#Record#0" expanded="false" />
+            <element signature="e#2863#2868#0" expanded="false" />
+            <element signature="class#4877:5270" expanded="false" />
+            <element signature="method#onFailure#0;class#4877:5270" expanded="false" />
+            <element signature="method#onSuccess#0;class#4877:5270" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="154" column="13" selection-start-line="154" selection-start-column="13" selection-end-line="154" selection-end-column="13" />
+          <folding>
+            <element signature="e#348#382#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#1267#1302#0" expanded="false" />
+            <element signature="e#1664#1666#0" expanded="false" />
+            <element signature="e#1839#1919#0" expanded="false" />
+            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#2106#2144#0" expanded="false" />
+            <element signature="e#2507#2561#0" expanded="false" />
+            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4146#4204#0" expanded="false" />
+            <element signature="e#4770#4840#0" expanded="false" />
+            <element signature="e#5188#5258#0" expanded="false" />
+            <element signature="e#5605#5675#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/MusicBroadcastReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <element signature="docComment;class#MusicBroadcastReceiver#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ncku/steven/musiclistener/BroadcastHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47368422">
+          <caret line="130" column="35" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
+          <folding>
+            <element signature="docComment;class#BroadcastHandler#0" expanded="false" />
+            <element signature="method#handle#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="method#htcHandler#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="e#1648#1703#0" expanded="false" />
+            <element signature="method#spotifyHandler#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="method#googleHandler#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="method#commandStart#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="method#commandNext#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="method#commandStop#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="method#setSource#0;class#BroadcastHandler#0" expanded="false" />
+            <element signature="e#5725#5758#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

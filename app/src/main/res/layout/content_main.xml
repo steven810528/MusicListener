@@ -95,6 +95,18 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp" />
 
+        <Button
+            android:layout_width="360dp"
+            android:layout_height="80dp"
+            android:text="fix"
+            android:id="@+id/init_button"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/start_button"
+            android:layout_alignBottom="@+id/start_button"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="right" />
+
     </LinearLayout>
 
 </RelativeLayout>

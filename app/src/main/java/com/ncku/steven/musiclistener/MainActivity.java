@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     //static ContextRecord cr=new ContextRecord();
 
     //String Song;
+    Button init_B;
     Button start_B;
     Button stop_B;
     Intent intent;
@@ -42,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         //Parse.enableLocalDatastore(this);
         //Parse.initialize(this);
+        init_B = (Button)findViewById(R.id.start_button);
         start_B = (Button)findViewById(R.id.start_button);
         stop_B  = (Button)findViewById(R.id.stop_button);
+
+        init_B.setOnClickListener(myListener);
         start_B.setOnClickListener(myListener);
         stop_B.setOnClickListener(myListener);
 
@@ -142,6 +146,14 @@ public class MainActivity extends AppCompatActivity {
                 stopService(intent);
                 Toast.makeText(MainActivity.this, "已停止運行", Toast.LENGTH_SHORT).show();
             }
+            else if(v.getId()==R.id.init_button)
+            {
+                //Intent intent = new Intent(MainActivity.this, CollectService.class);
+                //intent.setAction("steven.push");
+                CollectService.mbr.sr.isWorking=false;
+                Toast.makeText(MainActivity.this, "已初始化", Toast.LENGTH_SHORT).show();
+            }
+
         }
     };
 

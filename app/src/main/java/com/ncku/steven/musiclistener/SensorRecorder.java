@@ -17,7 +17,8 @@ import java.util.Date;
  */
 public class SensorRecorder implements SensorEventListener {
     static String TAG="#SensorRecorder";
-    static boolean isWorking=false;
+    static boolean isWorking;
+
     int time;
     static Date start;
     static Date end;
@@ -96,10 +97,11 @@ public class SensorRecorder implements SensorEventListener {
         CollectService.sensorManager.registerListener(this, CollectService.sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR), SensorManager.SENSOR_DELAY_NORMAL);
 
         try {
-            //noise_Sensor.release();
-            noise_Sensor = new AudioRecord(MediaRecorder.AudioSource.MIC,
-                    SAMPLE_RATE_IN_HZ, channelConfiguration,
-                    audioEncoding, BUFFER_SIZE);
+            if(noise_Sensor==null) {
+                noise_Sensor = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                        SAMPLE_RATE_IN_HZ, channelConfiguration,
+                        audioEncoding, BUFFER_SIZE);
+            }
             mLock = new Object();
             //noise_Sensor.startRecording();
         }
@@ -113,8 +115,10 @@ public class SensorRecorder implements SensorEventListener {
         new  Thread( new  Runnable() {
             @Override
             public  void  run() {
-
-                noise_Sensor.startRecording();
+                if(noise_Sensor!=null)
+                {
+                    noise_Sensor.startRecording();
+                }
                 short [] buffer =  new  short [BUFFER_SIZE];
                 while  (SensorRecorder.isWorking) {
                     //r是實際讀取的數據長度，一般而言r會小於buffersize
@@ -139,14 +143,9 @@ public class SensorRecorder implements SensorEventListener {
                         }
                     }
                 }
-                //noise_Sensor.stop();
-                //noise_Sensor.release();
-                //noise_Sensor =  null ;
+
             }
         }).start();
-        //this.noise_Sensor=new MediaRecorder();
-        //this.noise_Sensor.setAudioSource(MediaRecorder.AudioSource.MIC);
-
     }
     void unregisterSensor()
     {
@@ -217,7 +216,7 @@ public class SensorRecorder implements SensorEventListener {
         this.total_Light=0;
         this.numNoise=0;
         this.total_Noise=0;
-        //this.stop();
+
     }
     ///////////////////////////////////////////
     void updateAcc(SensorEvent val)

@@ -6,7 +6,6 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyPingCallback;
@@ -74,13 +73,12 @@ public class CollectService extends Service{
 
     static SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
 
+    static Timer t;
 
     @Override
     public void onCreate()
     {
-
-        isWorking=true;
-
+        this.isWorking=true;
         //get user ID
         this.user=Build.FINGERPRINT;
         Log.d("#my_getting_fingerprint", this.user);
@@ -88,13 +86,7 @@ public class CollectService extends Service{
         try {
             Parse.enableLocalDatastore(this);
             Parse.initialize(this);
-/*
-        Parse.initialize(new Parse.Configuration.Builder(this)
-                        .applicationId("musicListener")
-                        .clientKey("rslab")
-                        .server("http://140.116.96.70:1337/musicListener")
-                        .build()
-        );*/
+
             mClient = new Client.Builder("kid_-14qslXdAl","8ae8636fb9fb4b5c8a6856542b726247"
                     , this.getApplicationContext()).build();
             mClient.ping(new KinveyPingCallback() {
@@ -112,28 +104,26 @@ public class CollectService extends Service{
                 @Override
                 public void onFailure(Throwable t) {
                     CharSequence text = "Could not sign up.";
-                    Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
                 }
                 @Override
                 public void onSuccess(User u){
                     CharSequence text = u.getUsername() + ", your account has been created.";
-                    Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
                 }
             });
-
-
             mClient.user().login(this.user, this.user, new KinveyUserCallback() {
                 @Override
                 public void onFailure(Throwable t) {
                     CharSequence text = "Wrong username or password.";
-                    Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
 
                 }
 
                 @Override
                 public void onSuccess(User u) {
                     CharSequence text = "Welcome back," + u.getUsername() + ".";
-                    Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -162,22 +152,13 @@ public class CollectService extends Service{
 
         sensorManager = (SensorManager) getApplicationContext()
                 .getSystemService(SENSOR_SERVICE);
-        //mbr.sr.acc_Sensor=sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        //mbr.sr.mag_Sensor=sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED);
-        //mbr.sr.light_Sensor=sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-        //mbr.sr.noise_Sensor=sensorManager.getDefaultSensor(Sensor.TYPE_M);
-
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         flags =  START_STICKY;
-
         //
-        Timer t=new Timer();
+        t=new Timer();
         t.schedule(task,0,interval*1000/2);
-
-
-
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -202,6 +183,10 @@ public class CollectService extends Service{
         this.mbr=null;
         this.sensorManager=null;
         this.isWorking=false;
+
+        t.cancel();
+
+
         super.onDestroy();
     }
 
